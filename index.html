@@ -10,7 +10,7 @@
   <body>
     <div id="app">
       <ul>
-        <li v-for="(mail, index) in maillist">{{mail}}</li>
+        <li v-if="!mailFlag" v-for="(mail, index) in maillist">{{mail}}</li>
       </ul>
     </div>
 

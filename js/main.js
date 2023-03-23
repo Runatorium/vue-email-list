@@ -6,6 +6,7 @@ createApp(
             return {
                randommail: " ",
                maillist: [],
+               mailFlag: false,
             }  
         },
 
@@ -13,6 +14,7 @@ createApp(
             mailprint(){
                 console.log(this.randommail);
             },
+            
         },
 
         mounted() {
@@ -21,10 +23,13 @@ createApp(
             axios.get('https://flynn.boolean.careers/exercises/api/random/mail')
             .then( (response) => {
                     this.randommail = response.data.response;
-                    this.maillist.push(this.randommail);                   
+                    this.maillist.push(this.randommail);       
                 }
             )
          }
+         if(this.maillist.length == 10){
+            this.mailflag = true;
+        };        
     }
 }
 ).mount('#app')
